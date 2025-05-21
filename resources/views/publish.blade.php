@@ -101,11 +101,7 @@
             <h2 class="mb-5">Buat Post</h2>
             <div class="buttons">
                 <a href="{{ route('posts.create') }}" class="btn btn-primary">+ Buat Postingan</a>
-                <button class="btn-produk"> <a href="{{ route('postpublish') }}"
-                        style="
-                text-decoration:none;
-                color:white;">Post Product</a>
-                </button>
+                <a href="{{ route('products.create') }}" class="btn btn-danger">+ Post Produk</a>
             </div>
         </div>
     </div>

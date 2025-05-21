@@ -3,6 +3,8 @@
 @section('authcontent')
 
     <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
         <style>
             /* Reset dasar */
             * {
@@ -148,6 +150,7 @@
                 height: 100vh;
                 width: 100vw;
                 overflow: hidden;
+                box-shadow: 0 8px 24px rgba(0, 0, 2, 0.50);
             }
 
             .left-section {
@@ -297,11 +300,18 @@
                 <input name="email" type="email" placeholder="Email">
                 <input name="password" type="password" placeholder="Password">
                 <button class="login-btn" type="submit">Login</button>
-                <p>Belum punya akun? <span><a href="{{ route('register') }}"  style="color: rgb(0, 42, 255)">Daftar</a></span> sekarang</p>
+                <p>Belum punya akun? <span><a href="{{ route('register') }}"
+                            style="color: rgb(0, 42, 255)">Daftar</a></span> sekarang</p>
+                <!-- Alert untuk error login -->
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ $errors->first() }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
             </form>
-
-
         </div>
         </form>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </div>
 @endsection
