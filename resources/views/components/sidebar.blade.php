@@ -12,6 +12,13 @@
           Group</a
         >
       </button>
+
+      <button>
+        <span>🛒</span
+        ><a href="{{ route('products.index') }}" style="text-decoration: none; color: black">
+          Product</a
+        >
+      </button>
       <button>
         <span>✏️</span>
         <a href="{{ route('editp') }}" style="text-decoration: none; color: black"
