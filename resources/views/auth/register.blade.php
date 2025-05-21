@@ -192,9 +192,8 @@
                 <input name="email" type="email" placeholder="Email">
                 <input name="password" type="password" placeholder="Password">
                 <button class="login-btn" type="submit">Daftar</button>
-                <p>Belum punya akun? <span><a href="{{ route('register') }}"  style="color: rgb(0, 42, 255)">Daftar</a></span> sekarang</p>
+                <p>Sudah punya akun? <span><a href="{{ route('login') }}"  style="color: rgb(0, 42, 255)">Login</a></span> sekarang</p>
             </form>
-
         </div>
     </div>
 @endsection

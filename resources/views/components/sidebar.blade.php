@@ -8,7 +8,7 @@
       </button>
       <button class="active">
         <span>👥</span
-        ><a href="{{ route("group") }}" style="text-decoration: none; color: black">
+        ><a href="{{ route('group') }}" style="text-decoration: none; color: black">
           Group</a
         >
       </button>

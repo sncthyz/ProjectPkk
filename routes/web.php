@@ -5,8 +5,8 @@ use App\Models\User;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 
-Route::get('/', function () {
-    return view('group');
+Route::get('/group', function () {
+    return view('posts.index');
 })->name('group');
 
 Route::get('/edit', function () {
@@ -36,6 +36,11 @@ Route::get('/upgrade', function () {
 Route::get('/register', function () {
     return view('auth.register');
 })->name('auth.register');
+
+Route::get('/landing', function () {
+    return view('dashboard');
+})->name('dashboard');
+
 
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');

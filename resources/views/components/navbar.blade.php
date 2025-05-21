@@ -1,7 +1,7 @@
 <div class="navbar">
     <!-- Kiri: logo dan judul -->
     <div class="navbar-left">
-        <a href="landingpage.html"><img src="{{ asset('img/Mind_Loop-removebg-preview.png') }}" alt="Logo" /></a>
+        <a href="{{ route('dashboard') }}"><img src="{{ asset('img/Mind_Loop-removebg-preview.png') }}" alt="Logo" /></a>
         <strong>Mind Loop</strong>
     </div>
 
