@@ -1,84 +1,48 @@
-@extends('components.layouts')
+@extends('components.layouts') {{-- Ganti kalau kamu pakai layout lain --}}
 
 @section('content')
-        <div class="left">
-          <h2>💬 Diskusi</h2>
-          <div class="card-grid">
-            <a href="{{ route("postk") }}" style="text-decoration: none;">
-              <div class="card">
-              <img src="{{ asset('img/hitler jpg.jpeg') }}" alt="Hitler">
-              <div class="info">
-                <p class="date">📅 Rab, Jan 13, 7:00 PM</p>
-                <p class="title">Hitler dimana?</p>
-                <p class="location">205 attending • Induk, JKT</p>
-              </div>
-            </div>
-            </a>
-            <a href="" style="text-decoration: none;">
-              <div class="card">
-              <img src="{{ asset('img/hitler jpg.jpeg') }}" alt="Hitler">
-              <div class="info">
-                <p class="date">📅 Rab, Jan 13, 7:00 PM</p>
-                <p class="title">Hitler dimana?</p>
-                <p class="location">205 attending • Induk, JKT</p>
-              </div>
-            </div>  
-            </a>
-            
-            <a href="" style="text-decoration: none;">
-              <div class="card">
-              <img src="{{ asset('img/bjorka jpg.jpeg') }}" alt="Girl">
-              <div class="info">
-                <p class="date">📅 Rab, Jan 13, 7:00 PM</p>
-                <p class="title">Siapa sebenarnya tony?</p>
-                <p class="location">205 attending • Induk, JKT</p>
-              </div>
-            </div>
-            </a>
-             <a href="" style="text-decoration: none;">
-              <div class="card">
-              <img src="{{ asset('img/bjorka jpg.jpeg') }}" alt="Girl">
-              <div class="info">
-                <p class="date">📅 Rab, Jan 13, 7:00 PM</p>
-                <p class="title">Siapa sebenarnya björke?</p>
-                <p class="location">205 attending • Induk, JKT</p>
-              </div>
-            </div>
-             </a>
-            
-          </div>
-          <br>
-          
-          
-    
-          <h2>🛒 Produk Jualan</h2>
-          <div class="card-grid">
-            <a href="" style="text-decoration: none;">
-              <div class="card">
-              <img src="{{ asset('img/chago handbag jpg.jpeg') }}" alt="Shoes">
-              <div class="info">
-                <p class="date">📅 Rab, Jan 13, 7:00 PM</p>
-                <p class="title">Tas cagho ultra leon exclusive</p>
-                <p class="location">205 attending • Induk, JKT</p>
-              </div>
-            </div>
-            </a>
-           
-          </div>
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Daftar Post</h2>
+        <a href="{{ route('posts.create') }}" class="btn btn-primary">+ Tambah Post</a>
+    </div>
+
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
         </div>
-        
-    
-        <div class="right">
-          <h3>Categories</h3>
-          <ul class="categories">
-            <a href="#" style="text-decoration: none;"><li class="cat career" >Career</li></a>
-            <a href="#" style="text-decoration: none;"><li class="cat gaming">Gaming</li></a>
-              <a href="#" style="text-decoration: none;"><li class="cat sports">Sports</li></a>
-            <a href="#" style="text-decoration: none;"><li class="cat random">Random</li></a>
-            <br><br>
-            <br><br>
-            <a href="#" style="text-decoration: none;"><li class="cat postingananda">Postingan Anda</li></a>
-          </ul>
-          <a href="postingananda.html"></a>
-        </div>
+    @endif
+
+    <div class="row">
+        @forelse($posts as $post)
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    @if($post->imagePath)
+                        <img src="{{ asset('storage/' . $post->imagePath) }}" class="card-img-top" alt="Gambar Post">
+                    @endif
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $post->title }}</h5>
+                        <p class="card-text">{{ Str::limit($post->description, 100) }}</p>
+                        <small class="text-muted">Oleh {{ $post->user->name }}</small>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between">
+                        <a href="{{ route('posts.show', $post) }}" class="btn btn-sm btn-info">Lihat</a>
+                        <a href="{{ route('posts.edit', $post) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <form action="{{ route('posts.destroy', $post) }}" method="POST" onsubmit="return confirm('Yakin hapus?')">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-sm btn-danger">Hapus</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        @empty
+            <div class="col-12">
+                <div class="alert alert-secondary text-center">
+                    Belum ada post.
+                </div>
+            </div>
+        @endforelse
+    </div>
+</div>
 @endsection

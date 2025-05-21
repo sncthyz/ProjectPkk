@@ -21,7 +21,7 @@
             }
 
             /* Sidebar kiri */
-      
+
 
             /* Tombol premium di bawah sidebar */
             .premium-btn {
@@ -49,7 +49,7 @@
 
             /* Table Edit */
 
-            .card-edit  {
+            .card-edit {
                 text-align: center;
                 padding: 20px 40px;
                 background-color: white;
@@ -100,13 +100,12 @@
         <div class="card-edit">
             <h2 class="mb-5">Buat Post</h2>
             <div class="buttons">
-                <button class="btn-diskusi"> <a href="{{ route('postk') }}" style="
-                    text-decoration:none;
-                    color:white;"
-                    >Post Diskusi</a> </button>
-                <button class="btn-produk"> <a href="{{ route('postpublish') }}" style="
+                <a href="{{ route('posts.create') }}" class="btn btn-primary">+ Buat Postingan</a>
+                <button class="btn-produk"> <a href="{{ route('postpublish') }}"
+                        style="
                 text-decoration:none;
-                color:white;">Post Product</a> </button>
+                color:white;">Post Product</a>
+                </button>
             </div>
         </div>
     </div>

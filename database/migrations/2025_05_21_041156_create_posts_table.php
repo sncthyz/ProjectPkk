@@ -12,7 +12,8 @@ return new class extends Migration {
             $table->string('title');
             $table->text('description');
             $table->string('imagePath');
-            $table->timestamp('created_at')->useCurrent();
+            $table->timestamps(); 
+
 
             // Foreign key ke users
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

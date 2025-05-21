@@ -1,48 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 
-Route::get('/group', function () {
-    return view('posts.index');
-})->name('group');
 
-Route::get('/edit', function () {
-    return view('edit');
-})->name('editp');
+Route::view('/edit', 'edit')->name('editp');
+Route::view('/postklik', 'postklik')->name('postk');
+Route::view('/publish', 'publish')->name('postpublish');
+Route::view('/setting', 'setting')->name('setting');
+Route::view('/register', 'auth.register')->name('auth.register');
+Route::view('/landing', 'dashboard')->name('dashboard');
 
-// Route::get('/login', function () {
-//     return view('auth.login');
-// })->name('auth.login');
-
-Route::get('/postklik', function () {
-    return view('postklik');
-})->name('postk');
-
-Route::get('/publish', function () {
-    return view('publish');
-})->name('postpublish');
-
-Route::get('/setting', function () {
-    return view('setting');
-})->name('setting');
-
-Route::get('/upgrade', function () {
-    return view('upgradepremium');
-})->name('pro');
-
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('auth.register');
-
-Route::get('/landing', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-
-
+// Auth
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -52,5 +22,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// CRUD Post
 Route::resource('posts', PostController::class)->middleware('auth');
+Route::get('/group', [PostController::class, 'index'])->name('group');
 
