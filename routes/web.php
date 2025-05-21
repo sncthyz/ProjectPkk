@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('group');
@@ -45,3 +46,6 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::resource('posts', PostController::class)->middleware('auth');
+
