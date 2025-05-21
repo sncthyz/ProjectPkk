@@ -154,7 +154,6 @@
             .left-section {
                 flex: 1;
                 background: #eee;
-                overflow: hidden;
                 border-top-left-radius: 15px;
                 border-bottom-left-radius: 15px;
             }
