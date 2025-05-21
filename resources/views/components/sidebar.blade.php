@@ -2,7 +2,7 @@
       <!-- Tombol navigasi -->
       <button>
         <span>➕</span>
-        <a href="publishidea.html" style="text-decoration: none; color: black"
+        <a href="/publish" style="text-decoration: none; color: black"
           >Publish Your Idea</a
         >
       </button>

@@ -22,7 +22,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|',
         ]);
@@ -42,7 +42,9 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('group')->with('success', 'Login successful.');
+         $request->session()->put('user_id', auth()->id());
+        $request->session()->put('user_name', auth()->user()->name);
+                return redirect()->route('group')->with('success', 'Login successful.');
         }
 
         return back()->withErrors([
@@ -65,5 +67,5 @@ class AuthController extends Controller
         return redirect()->route('login')->with('success', 'Logout successful.');
     }
 
-    
+
 }

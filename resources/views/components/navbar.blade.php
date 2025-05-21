@@ -17,7 +17,7 @@
         <button class="rounded-2 p-1">👤 Create</button>
 
         <div class="row">
-            <h1 class="h6" style="margin-top: 6px;">Selamat Datang, {{ auth()->user()->name }}</h1>
+            <h1 class="h6" style="margin-top: 6px;">Selamat Datang, {{auth()->user()->name}} </h1>
         </div>
         <form class="pe-3" method="POST" action="{{ route('logout') }}">
             @csrf

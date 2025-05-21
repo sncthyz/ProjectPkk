@@ -21,7 +21,7 @@
             }
 
             /* Sidebar kiri */
-      
+
 
             /* Tombol premium di bawah sidebar */
             .premium-btn {
@@ -100,7 +100,7 @@
         <div class="card-edit">
             <h2>Buat Post</h2>
             <div class="buttons">
-                <button class="btn-diskusi">Post Diskusi</button>
+<a href="{{URL('postdiskusi')}}" class="btn btn-danger">Post Diskusi</a>
                 <button class="btn-produk">Post Produk</button>
             </div>
         </div>

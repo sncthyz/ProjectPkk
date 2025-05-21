@@ -1,12 +1,12 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return view('group');
-})->name('group');
+Route::get('/group', [PostController::class, 'index'])->name('group');
+
 
 Route::get('/edit', function () {
     return view('edit');
@@ -24,9 +24,14 @@ Route::get('/publish', function () {
     return view('publish');
 })->name('postpublish');
 
+
 Route::get('/setting', function () {
     return view('setting');
 })->name('setting');
+
+Route::get('/postdiskusi', [PostController::class, 'show']);
+Route::post('/postdiskusi', [PostController::class, 'store']);
+
 
 Route::get('/upgrade', function () {
     return view('upgradepremium');
@@ -37,8 +42,12 @@ Route::get('/register', function () {
 })->name('auth.register');
 
 
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
+
+
+
+
+Route::get('/', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/', [AuthController::class, 'login']);
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
