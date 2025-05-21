@@ -26,21 +26,20 @@
                 display: flex;
                 flex-direction: column;
                 height: 100vh;
+                width: 100vw;
                 overflow: hidden;
             }
 
 
             /* LOGIN ISI */
 
-            body {
-                margin: 0;
-                font-family: 'Segoe UI', sans-serif;
-            }
-
             .login-container {
-                display: flex;
-                height: 100vh;
-            }
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+}
+
 
             .left-section {
                 flex: 1;
@@ -51,8 +50,8 @@
             }
 
             .left-section img {
-                width: 100%;
-                height: 100%;
+                width: 107%;
+                height: 150%;
                 object-fit: cover;
             }
 
