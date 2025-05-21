@@ -40,19 +40,20 @@
             .login-container {
                 display: flex;
                 height: 100vh;
+                width: 100vw;
+                overflow: hidden;
             }
 
             .left-section {
                 flex: 1;
                 background: #eee;
                 overflow: hidden;
-                border-top-left-radius: 15px;
                 border-bottom-left-radius: 15px;
             }
 
             .left-section img {
-                width: 100%;
-                height: 100%;
+                width: 107%;
+                height: 150%;
                 object-fit: cover;
             }
 
@@ -191,6 +192,7 @@
                 <input name="email" type="email" placeholder="Email">
                 <input name="password" type="password" placeholder="Password">
                 <button class="login-btn" type="submit">Daftar</button>
+                <p>Belum punya akun? <span><a href="{{ route('register') }}"  style="color: rgb(0, 42, 255)">Daftar</a></span> sekarang</p>
             </form>
 
         </div>

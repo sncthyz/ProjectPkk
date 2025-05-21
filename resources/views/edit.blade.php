@@ -98,7 +98,7 @@
     </head>
     <div class="card-container-edit">
         <div class="card-edit">
-            <h2>Edit</h2>
+            <h2 class="mb-5">Edit</h2>
             <div class="buttons">
                 <button class="btn-diskusi">Post Diskusi</button>
                 <button class="btn-produk">Post Produk</button>
