@@ -47,6 +47,11 @@ class ProductController extends Controller
         return view('products.show', compact('product'));
     }
 
+    public function showReceipt(Product $product)
+    {
+        return view('products.receipt', compact('product'));
+    }
+
     public function edit(Product $product)
     {
         return view('products.edit', compact('product'));

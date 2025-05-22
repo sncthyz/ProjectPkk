@@ -3,8 +3,7 @@
 @section('content')
 <div class="custom-container">
     <div class="custom-header">
-        <h2>Daftar Produk</h2>
-        <a href="{{ route('products.create') }}" class="custom-btn custom-btn-primary">+ Tambah Produk</a>
+        <h2>DAFTAR PRODUK</h2>
     </div>
 
     <div class="custom-grid">
@@ -14,17 +13,17 @@
                     <img src="{{ asset('storage/' . $product->imagePath) }}" class="post-img" alt="Gambar Produk">
                 @endif
                 <div class="post-content">
-                    <h3 class="post-title">{{ $product->title }}</h3>
+                    <h3 class="post-title fw-bold">{{ $product->title }}</h3>
                     <p class="post-desc">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                     <p class="post-desc">{{ Str::limit($product->description, 100) }}</p>
                 </div>
                 <div class="post-actions">
-                    <a href="{{ route('products.show', $product) }}" class="custom-btn custom-btn-info">Lihat</a>
-                    <a href="{{ route('products.edit', $product) }}" class="custom-btn custom-btn-warning">Edit</a>
+                    <a href="{{ route('products.show', $product) }}" class="custom-btn fw-bold custom-btn-info">Lihat</a>
+                    <a href="{{ route('products.edit', $product) }}" class="custom-btn fw-bold custom-btn-warning">Edit</a>
                     <form action="{{ route('products.destroy', $product) }}" method="POST" onsubmit="return confirm('Yakin hapus produk ini?')">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="custom-btn custom-btn-danger">Hapus</button>
+                        <button type="submit" class="custom-btn fw-bold custom-btn-danger">Hapus</button>
                     </form>
                 </div>
             </div>

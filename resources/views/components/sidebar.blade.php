@@ -1,14 +1,21 @@
 <div class="sidebar">
       <!-- Tombol navigasi -->
+
+      <button>
+        <span>📌</span
+        ><a href="{{ route('dashboard') }}" style="text-decoration: none; color: black">
+          Dashboard</a
+        >
+      </button>
       <button>
         <span>➕</span>
         <a href="{{ route('postpublish') }}" style="text-decoration: none; color: black"
           >Publish Your Idea</a
         >
-      </button>
+      </button> 
       <button class="active">
         <span>👥</span
-        ><a href="{{ route('group') }}" style="text-decoration: none; color: black">
+        ><a href="{{ url('group') }}" style="text-decoration: none; color: black">
           Group</a
         >
       </button>
@@ -22,8 +29,8 @@
       <button>
         <span>✏️</span>
         <a href="{{ route('editp') }}" style="text-decoration: none; color: black"
-          >Edit</a\
-        >
+          >Edit</a>
+        
       </button>
       <button>
         <span>⚙️</span>

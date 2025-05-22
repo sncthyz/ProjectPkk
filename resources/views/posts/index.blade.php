@@ -3,8 +3,7 @@
 @section('content')
     <div class="custom-container">
         <div class="custom-header">
-            <h2>Daftar Post</h2>
-            <a href="{{ route('posts.create') }}" class="custom-btn custom-btn-primary">+ Tambah Post</a>
+            <h2>DAFTAR POST</h2>
         </div>
 
         <div class="custom-grid">

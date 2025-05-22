@@ -1,9 +1,7 @@
 @extends('components.layouts')
 
 @section('content')
-<div class="container">
-    <h2 class="mb-4">Edit Post</h2>
-
+<div class="container p-3">
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Terjadi kesalahan!</strong>
@@ -18,6 +16,7 @@
     <form action="{{ route('posts.update', $post) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+    <h2 class="mb-4">Edit Post</h2>
 
         <div class="mb-3">
             <label for="title" class="form-label">Judul</label>

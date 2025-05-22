@@ -13,6 +13,8 @@ Route::view('/setting', 'setting')->name('setting');
 Route::view('/register', 'auth.register')->name('auth.register');
 Route::view('/landing', 'dashboard')->name('dashboard');
 
+
+
 // Auth Routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -29,3 +31,4 @@ Route::get('/group', [PostController::class, 'index'])->name('group');
 
 // CRUD Product
 Route::resource('products', ProductController::class)->middleware('auth');
+Route::get('/products/receipt/{product}', [ProductController::class, 'showReceipt'])->name('products.receipt');
